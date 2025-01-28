@@ -5,14 +5,16 @@ on:
   workflow_dispatch:
   inputs:
     test:
-      type: boolean
+      type: choice
       description: Test workflow
-      default: true
+      options:
+        - true
+        - false
       
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: ${{ inputs.test }}
+    if: ${{ inputs.test == 'true' }}
     steps:
       - name: Test
         run: echo "Test workflow"
