@@ -1,4 +1,5 @@
 name: test_workflow
+run-name: testing the new workflow
 
 on:
   workflow_dispatch:
