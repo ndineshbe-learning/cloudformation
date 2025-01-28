@@ -1,7 +1,9 @@
 name: test_workflow
-run-name: testing the new workflow
-
+run-name: ${{ github.event_name }} run ${{ inputs.test }}
 on:
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       test:
@@ -9,10 +11,10 @@ on:
         description: Test workflow
         options:
           - true
-          - false
-      
+          - false 
+
 jobs:
-  test:
+  test1:
     runs-on: ubuntu-latest
     if: ${{ inputs.test == 'true' }}
     steps:
