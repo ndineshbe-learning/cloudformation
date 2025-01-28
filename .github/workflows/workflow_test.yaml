@@ -10,16 +10,22 @@ on:
         description: Test workflow
         options:
           - true
-          - false
-if : ${{ github.event_name == 'workflow_dispatch' }}
-run-name: testing the new workflow
-if: ${{ github.event_name == 'pull_request' }}
-run-name: testing the pull request workflow    
+          - false 
 
 jobs:
-  test:
+  test1:
     runs-on: ubuntu-latest
     if: ${{ inputs.test == 'true' }}
     steps:
       - name: Test
         run: echo "Test workflow"
+
+  test2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set run-name for workflow_dispatch
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: echo "::set-output name=run-name::testing the new workflow"
+      - name: Set run-name for pull_request
+        if: ${{ github.event_name == 'pull_request' }}
+        run: echo "::set-output name=run-name::testing the pull request workflow"
