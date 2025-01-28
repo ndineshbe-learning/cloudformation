@@ -1,0 +1,17 @@
+name: test_workflow
+
+on:
+  workflow_dispatch:
+  inputs:
+    test:
+      type: boolean
+      description: Test workflow
+      default: true
+      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.test }}
+    steps:
+      - name: Test
+        run: echo "Test workflow"
