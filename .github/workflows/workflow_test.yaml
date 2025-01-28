@@ -3,13 +3,13 @@ run-name: testing the new workflow
 
 on:
   workflow_dispatch:
-  inputs:
-    test:
-      type: choice
-      description: Test workflow
-      options:
-        - true
-        - false
+    inputs:
+      test:
+        type: choice
+        description: Test workflow
+        options:
+          - true
+          - false
       
 jobs:
   test:
