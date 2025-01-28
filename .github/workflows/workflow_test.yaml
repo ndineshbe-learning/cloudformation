@@ -1,9 +1,6 @@
 name: test_workflow
 run-name: ${{ github.event_name }} run ${{ inputs.test }}
 on:
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       test:
