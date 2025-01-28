@@ -1,8 +1,8 @@
 name: test_workflow
 on:
   pull_request:
-    - branches:
-        - main
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       test:
