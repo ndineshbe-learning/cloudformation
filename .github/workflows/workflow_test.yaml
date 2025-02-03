@@ -1,5 +1,5 @@
 name: Testing Workflow
-run-name: ${{ github.action}} ${{ github.event_name }} ${{ github.event.inputs.test }}
+run-name: ${{ github.action }} ${{ github.event_name }} ${{ github.event.inputs.test }}
 on:
   pull_request:
     branches:
